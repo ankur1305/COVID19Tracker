@@ -45,4 +45,7 @@ dependencies {
     //volley library
     implementation 'com.android.volley:volley:1.1.1'
 
+    //Lottie Library
+    implementation 'com.airbnb.android:lottie:3.4.2'
+
 }

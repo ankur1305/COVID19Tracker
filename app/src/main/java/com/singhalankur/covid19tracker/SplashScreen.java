@@ -10,12 +10,14 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.airbnb.lottie.LottieAnimationView;
+
 public class SplashScreen extends AppCompatActivity {
 
     public static int SPLASH_TIMER = 3500;
 
     //Variables
-    ImageView appIcon;
+    LottieAnimationView appIcon;
     TextView poweredByLine, appTitle;
 
     //Animation Variables
@@ -29,7 +31,7 @@ public class SplashScreen extends AppCompatActivity {
         getSupportActionBar().hide();
 
         //Hooks
-        appIcon = findViewById(R.id.ivLogo);
+        appIcon = findViewById(R.id.lottie);
         appTitle = findViewById(R.id.app_title);
         poweredByLine = findViewById(R.id.powered_by_text);
 
@@ -38,9 +40,9 @@ public class SplashScreen extends AppCompatActivity {
         bottomAnim = AnimationUtils.loadAnimation(this, R.anim.bottom_anim);
 
         //Set Animations
-        appIcon.setAnimation(sideAnim);
-        appTitle.setAnimation(bottomAnim);
-        poweredByLine.setAnimation(bottomAnim);
+        appIcon.setAnimation(bottomAnim);
+        appTitle.setAnimation(sideAnim);
+        poweredByLine.setAnimation(sideAnim);
 
         new Handler().postDelayed(new Runnable() {
             @Override
