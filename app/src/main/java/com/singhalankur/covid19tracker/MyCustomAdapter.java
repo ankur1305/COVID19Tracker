@@ -6,8 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -18,7 +18,7 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MyCustomAdapter extends ArrayAdapter<ModelCountry> {
+public class MyCustomAdapter extends ArrayAdapter<ModelCountry> implements Filterable {
 
     private Context context;
     private List<ModelCountry> modelCountryList;
@@ -71,23 +71,19 @@ public class MyCustomAdapter extends ArrayAdapter<ModelCountry> {
                 if (constraint == null || constraint.length() == 0) {
                     filterResults.count = modelCountryList.size();
                     filterResults.values = modelCountryList;
-
                 } else {
                     List<ModelCountry> resultsModel = new ArrayList<>();
                     String searchStr = constraint.toString().toLowerCase();
 
                     for (ModelCountry itemsModel : modelCountryList) {
-                        if (itemsModel.getCountry().toLowerCase().contains(searchStr)) {
+                        if (itemsModel.getCountry().toLowerCase().startsWith(searchStr)) {
                             resultsModel.add(itemsModel);
 
                         }
                         filterResults.count = resultsModel.size();
                         filterResults.values = resultsModel;
                     }
-
-
                 }
-
                 return filterResults;
             }
 
@@ -102,5 +98,6 @@ public class MyCustomAdapter extends ArrayAdapter<ModelCountry> {
         };
         return filter;
     }
+
 
 }

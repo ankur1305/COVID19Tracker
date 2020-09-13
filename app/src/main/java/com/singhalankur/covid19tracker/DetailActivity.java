@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 public class DetailActivity extends AppCompatActivity {
 
-    private int positionCountry;
     TextView tvCountry, tvCases, tvRecovered, tvCritical, tvActive, tvTodayCases, tvTotalDeaths, tvTodayDeaths;
 
     @Override
@@ -19,7 +18,7 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
 
         Intent intent = getIntent();
-        positionCountry = intent.getIntExtra("position", 0);
+        int positionCountry = intent.getIntExtra("position", 0);
 
         getSupportActionBar().setTitle("Details of " + AffectedCountries.modelCountryList.get(positionCountry).getCountry());
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

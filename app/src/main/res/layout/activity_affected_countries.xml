@@ -20,9 +20,11 @@
         android:hint="@string/search_country"
         android:drawableStart="@drawable/ic_search"
         android:drawablePadding="20dp"
+        android:inputType="text"
         android:background="@drawable/edittext_shadow"
         android:elevation="5dp"
-        android:drawableTint="@color/color_black"/>
+        android:drawableTint="@color/color_black"
+        android:autofillHints="@null" />
     
     <ListView
         android:id="@+id/listView"

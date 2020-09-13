@@ -55,8 +55,6 @@ public class AffectedCountries extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        fetchData();
-
         edtSearch.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -81,6 +79,8 @@ public class AffectedCountries extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), DetailActivity.class).putExtra("position",position));
             }
         });
+
+        fetchData();
 
     }
 
